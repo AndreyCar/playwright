@@ -2,7 +2,7 @@ const { test, expect } = require('@playwright/test');
 const { HomePage } = require('../pages/home.page');
 const { ElasticSipPage } = require('../pages/elasticSip.page');
 
-test('getting started should contain table of contents', async ({ page }) => {
+test('should', async ({ page }) => {
 	const homePage = new HomePage(page);
 	const elasticSipPage = new ElasticSipPage(page);
 
