@@ -2,7 +2,7 @@ const { test, expect } = require('@playwright/test');
 const { HomePage } = require('../pages/home.page');
 const { ElasticSipPage } = require('../pages/elasticSip.page');
 
-test('should go to elastic sip pricing and check if the url contains the selected currency', async ({ page }) => {
+test.skip('should go to elastic sip pricing and check if the url contains the selected currency', async ({ page }) => {
 	const homePage = new HomePage(page);
 	const elasticSipPage = new ElasticSipPage(page);
 
@@ -10,6 +10,7 @@ test('should go to elastic sip pricing and check if the url contains the selecte
 	await homePage.cookiesCloseButtonClick();
 	await homePage.getMenuListHover();
 	await homePage.elasticSipButtonClick();
+	await expect(page).toHaveURL('https://telnyx.com/pricing/elastic-sip');
 
 	const currencyCount = await elasticSipPage.getCurrencyArrayButton.count();
 	for (let i = 0; i < currencyCount; ++i) {

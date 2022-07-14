@@ -6,6 +6,7 @@ exports.HomePage = class HomePage {
 		this.getCookiesCloseButton = page.locator('.sc-df34c536-5.jRrWoh');
 		this.getMenuList = page.locator('.sc-7b3980dc-6.gdETaM');
 		this.getElasticSipButton = page.locator('.sc-7b3980dc-2.bjOBlW [href="/pricing/elastic-sip"]');
+		this.getSignUpButton = page.locator('.sc-9d98fd33-5.dVueFL.sc-9d98fd33-7.kpJVrZ [href="/sign-up"]');
 	}
 
 	async goto() {
@@ -24,11 +25,15 @@ exports.HomePage = class HomePage {
 	async elasticSipButtonClick() {
 		await this.toBeVisibleEnabled(this.getElasticSipButton);
 		await this.getElasticSipButton.click();
-		await expect(this.page).toHaveURL('https://telnyx.com/pricing/elastic-sip');
 	}
 
 	async cookiesCloseButtonClick() {
 		await this.toBeVisibleEnabled(this.getCookiesCloseButton);
 		await this.getCookiesCloseButton.click();
+	}
+
+	async signUpButtonClick() {
+		await this.toBeVisibleEnabled(this.getSignUpButton);
+		await this.getSignUpButton.click();
 	}
 };
